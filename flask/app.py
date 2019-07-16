@@ -2,11 +2,13 @@ from flask import Flask, request, Response
 import pika
 
 app = Flask(__name__)
+i = 0
 
 
 @app.route('/api/produce/get', methods=['GET'])
-def index():
-    return "Test"
+def index(i):
+    i += 1
+    return "Successful returns: {}".format(i)
 
 
 @app.route('/api/produce/message', methods=['POST'])
