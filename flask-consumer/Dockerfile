@@ -5,6 +5,6 @@ WORKDIR /usr/src/app
 
 RUN pip install -r requirements.txt
 
-EXPOSE 80
+EXPOSE 8080
 
-CMD ["python", "app.py"]
+CMD ["python", "receive.py"]
