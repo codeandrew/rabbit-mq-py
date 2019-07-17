@@ -5,7 +5,7 @@ app = Flask(__name__)
 i = 0
 
 connection = pika.BlockingConnection(
-             pika.ConnectionParameters('localhost'))
+             pika.ConnectionParameters('my-rabbit-rabbitmq-ha'))
 channel = connection.channel()
 channel.queue_declare(queue='hello')
 

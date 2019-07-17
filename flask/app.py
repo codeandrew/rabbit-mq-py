@@ -14,7 +14,7 @@ def index(i):
 @app.route('/api/produce/message', methods=['POST'])
 def incoming():
     connection = pika.BlockingConnection(
-                 pika.ConnectionParameters('localhost'))
+                 pika.ConnectionParameters('my-rabbit-rabbitmq-ha'))
     channel = connection.channel()
     data = request.get_data()
     print(data)
