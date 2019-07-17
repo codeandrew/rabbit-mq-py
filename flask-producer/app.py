@@ -13,11 +13,11 @@ def index(i):
 
 @app.route('/api/produce/message', methods=['POST'])
 def incoming():
-    connection = pika.BlockingConnection(
-                 pika.ConnectionParameters('my-rabbit-rabbitmq-ha'))
-    channel = connection.channel()
     data = request.get_data()
     print(data)
+    connection = pika.BlockingConnection(
+        pika.ConnectionParameters(host='my-rabbit-rabbitmq-ha'))
+    channel = connection.channel()
 
     channel.queue_declare(queue='hello')
     channel.basic_publish(exchange='',
